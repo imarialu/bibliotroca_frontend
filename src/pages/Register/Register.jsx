@@ -1,10 +1,42 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { Input } from "../../components/Input";
+
+import api from "../../services/api";
 
 export default function Register(){
     const navigate = useNavigate();
+
+    const [formData, setFormData] = useState({
+        usuario: "",
+        nome: "",
+        email: "",
+        telefone: "",
+        senha: "",
+        ativo: 1,
+    });
+
+    const handleRegister = async (e) => {
+        e.preventDefault();
+        try{
+            const response = await api.post(`/usuarios`, formData);
+
+            if(response){
+                navigate('/login');
+            }
+        }catch(error){
+            console.log("Erro ao criar conta: ", error);
+        }
+    }
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        })
+    }
 
     return(
         <main className="flex md:flex-row w-full bg-purple h-screen">
@@ -21,30 +53,44 @@ export default function Register(){
                     </p>
                 </div>
 
-                <form className="flex flex-col mb-5 w-[350px] lg:w-[400px]">
+                <form className="flex flex-col mb-5 w-[350px] lg:w-[400px]" onSubmit={handleRegister}>
                     <Input 
                         label={"Nome de usuário"} 
+                        value={formData.usuario}
                         type="text"
+                        name="usuario"
+                        onChange={handleChange}
                     />
                     <Input 
-                        label={"Nome"}
+                        label={"Nome"} 
+                        value={formData.nome}
                         type="text"
+                        name="nome"
+                        onChange={handleChange}
                     />
 
                     <Input 
-                        label={"Email"}
+                        label={"Email"} 
+                        value={formData.email}
                         type="email"
+                        name="email"
+                        onChange={handleChange}
                     />
 
                     <Input 
-                        label={"Telefone"}
+                        label={"Telefone"} 
+                        value={formData.telefone}
                         type="text"
+                        name="telefone"
+                        onChange={handleChange}
                     />
 
                     <div className="grid grid-cols-2 gap-4">
                         <Input 
                             label={"Senha"} 
                             type={"password"}
+                            name="senha"
+                            onChange={handleChange}
                         />
                         <Input 
                             label={"Confirmar senha"} 

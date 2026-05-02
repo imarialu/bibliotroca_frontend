@@ -3,8 +3,74 @@ import { useEffect, useRef, useState } from "react";
 
 import { Input } from "../../components/Input";
 
+import { useAuth } from "../../hooks/useAuth";
+import { getGoogleLink, authGoogle } from "../../services/authService";
+
 export default function Login(){
     const navigate = useNavigate();
+    const { login, googleLogin } = useAuth();
+    const [googleLink, setGoogleLink] = useState(null);
+    const [formData, setFormData] = useState({
+        email: "",
+        senha: "",
+    });
+
+    const {search} = useLocation();
+    const params = new URLSearchParams(search);
+    const hasSentCode = useRef(false);
+
+    useEffect(() => {
+        const code = params.get('code');
+        if (!code) return;
+        if (hasSentCode.current) return;
+
+        hasSentCode.current = true;
+
+        const authGoogle = async () => {
+            const response = await googleLogin(code);
+
+            if (response) {
+                toast.success("Login realizado com sucesso");
+                navigate('/');
+            } else {
+                toast.error("Não foi possível autenticar com Google");
+            }
+        }
+
+        authGoogle();
+    }, [search]);
+
+    useEffect(() => {
+        if (params.get('code')) return;
+
+        const link = async () => {
+            const response = await getGoogleLink();
+            setGoogleLink(response.data);
+        }
+
+        link();
+    }, []);
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try{
+            const response = await login(formData);
+            console.log(response)
+            
+            if(response){
+                navigate('/');
+            }
+        }catch(error){
+            console.log("Erro ao realizar login: ", error);
+        }
+    }   
+    
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        })
+    }
 
     return(
         <>
@@ -22,16 +88,21 @@ export default function Login(){
                         </p>
                     </div>
                     
-                    <form onSubmit={} className="flex flex-col mb-5 w-[350px] lg:w-[400px]">
+                    <form onSubmit={handleLogin} className="flex flex-col mb-5 w-[350px] lg:w-[400px]">
                         <Input 
                             label={"Nome de usuário"} 
                             type={"text"}
+                            name="email" 
+                            value={formData.email} 
+                            onChange={handleChange}
                         />
                         <Input 
                             label={"Senha"} 
                             type={"password"}
+                            name="senha" 
+                            value={formData.senha} 
+                            onChange={handleChange}
                         />
-
                         <div className="flex justify-center mt-10">
                             <button type="submit" className="w-[200px] h-8 bg-purple text-white font-bold rounded-full cursor-pointer">Entrar</button>
                         </div>
@@ -43,7 +114,7 @@ export default function Login(){
                         <hr className="w-[180px] border-gray"/>
                     </div>
 
-                    <a href={} className="flex aling-center gap-2 px-2 py-1 border border-purple rounded-sm cursor-pointer hover:text-purple">
+                    <a href={googleLink} className="flex aling-center gap-2 px-2 py-1 border border-purple rounded-sm cursor-pointer hover:text-purple">
                         <div className="flex items-center justify-center w-[25px]">
                             <img src="/icons/icon-google.png" alt="Ícone do Google" className="size-[20px] items-center"/>
                         </div>
