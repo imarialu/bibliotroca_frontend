@@ -33,7 +33,7 @@ export function BookCard({image, condition, title, author, user, uuid}){
                         <div className="rounded-full bg-gray w-[25px] h-[25px]">
                             <img 
                             src={user?.icone?.slice(0,5) === "https" ? user.icone : url + "/tmp/img/users/" + user?.icone} 
-                            alt="Usuario icone" 
+                            alt="Icone do usuário" 
                             className="rounded-full h-full w-full"
                             onError={(e) => {
                                 e.target.src = url + "/public/img/users/default.png";

@@ -11,7 +11,7 @@ export default function MyProfileForm(){
             <div className="flex items-center gap-5">
                 <div className="w-[80px] h-[80px] rounded-full bg-gray-200">
                     <img 
-                        alt="Usuario icone" 
+                        alt="Icone do usuário" 
                         className="rounded-full h-full w-full"
                     />
                 </div>

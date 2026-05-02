@@ -23,7 +23,7 @@ export default function Sidebar(){
                 <nav className="flex justify-center items-center w-[95%] md:flex-col md:justify-between md:h-[95%]">
                     <div>
                         <div className="hidden md:flex md:justify-center">
-                            <img src="../../public/logo.png" alt="" className="size-[35px]"/>
+                            <img src="../../public/logo.png" alt="Logo do Bibliotroca" className="size-[35px]"/>
                          </div>
 
                         <hr className="hidden md:block md:mt-3 md:text-darkpurple"/>

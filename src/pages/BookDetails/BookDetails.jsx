@@ -46,7 +46,7 @@ export default function BookDetails(){
                                 <div className="w-[250px] h-[300px] md:w-[230px] md:h-[340px] md:mr-10 xl:mr-12">
                                     <img 
                                         src={url + "/tmp/img/livros/" + book.imagem} 
-                                        alt="Usuario icone" 
+                                        alt="Icone do usuário" 
                                         className="rounded-sm h-full w-full"
                                         onError={(e) => {
                                             e.target.src = url + "/public/img/livros/default-book.png";
@@ -83,7 +83,7 @@ export default function BookDetails(){
                                         <div className="size-[50px] rounded-full">
                                             <img 
                                                 src={book.usuario?.icone?.slice(0,5) === "https" ? book.usuario.icone : url + '/tmp/img/users/' + book.usuario?.icone} 
-                                                alt="Usuario icone" 
+                                                alt="Icone do usuário" 
                                                 className="rounded-full h-full w-full"
                                                 onError={(e) => {
                                                     e.target.src = url + "/public/img/users/default.png";
