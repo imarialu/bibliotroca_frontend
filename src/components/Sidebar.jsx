@@ -4,7 +4,6 @@ import { SidebarLink } from './SidebarLink';
 import { HiOutlineHome } from 'react-icons/hi2';
 import { PiBookBookmark } from 'react-icons/pi';
 import { IoAddCircleOutline } from 'react-icons/io5';
-import { PiInfo } from "react-icons/pi";
 import { HiOutlineUser } from "react-icons/hi";
 import { MdLogout } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
@@ -32,9 +31,7 @@ export default function Sidebar(){
                         <ul className="flex gap-5 items-center md:flex-col md:mt-5">
                             <SidebarLink url={"/"} icon={<HiOutlineHome className="text-2xl"/>}/>
                             <SidebarLink url={"/meus-livros"} icon={<PiBookBookmark className="text-2xl"/>}/>
-                            <SidebarLink url={"/cadastro-de-livros"} icon={<IoAddCircleOutline className="text-2xl"/>}/> 
-                            {/* <SidebarLink icon={<PiInfo className="text-2xl"/>}/> */}
-                            <SidebarLink url={"/minha-conta"} icon={<HiOutlineUser className="text-2xl"/>}/>
+                            <SidebarLink url={"/cadastro-de-livros"} icon={<IoAddCircleOutline className="text-2xl"/>}/>                             <SidebarLink url={"/minha-conta"} icon={<HiOutlineUser className="text-2xl"/>}/>
                         </ul>
                     </div>
 
