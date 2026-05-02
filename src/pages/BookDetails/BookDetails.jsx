@@ -2,6 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+import url from "../../services/url";
+import { getBookById } from "../../services/bookService";
+
 import MainLayout from "../../layouts/MainLayout";
 import FilledButton from "../../components/FilledButton";
 import Modal from "../../components/Modal";
@@ -9,6 +12,21 @@ import { BsArrowLeftShort } from 'react-icons/bs';
 
 
 export default function BookDetails(){
+    const [showModal, setShowModal] = useState(false);
+    const [book, setBook] = useState([]);
+    const {uuid} = useParams();
+
+    const navigate = useNavigate();
+    
+    useEffect(() => {
+        const fetchBook = async () => {
+            const response = await getBookById(uuid);
+            setBook(response);
+        }
+
+        fetchBook();
+    }, [book]);
+
     return(
         <>
             <MainLayout>
@@ -27,9 +45,12 @@ export default function BookDetails(){
                             <div className="col-span-1 flex justify-center">
                                 <div className="w-[250px] h-[300px] md:w-[230px] md:h-[340px] md:mr-10 xl:mr-12">
                                     <img 
-                                        src={} 
-                                        alt="Icone do usuário" 
+                                        src={url + "/tmp/img/livros/" + book.imagem} 
+                                        alt="Usuario icone" 
                                         className="rounded-sm h-full w-full"
+                                        onError={(e) => {
+                                            e.target.src = url + "/public/img/livros/default-book.png";
+                                        }}
                                     />
                                 </div>
 
@@ -39,34 +60,38 @@ export default function BookDetails(){
                             <div className="flex flex-col justify-between col-span-1 mt-2 md:mt-0 xl:col-span-2">
                                 <div className="flex flex-col">
                                     <p className="text-purple font-semibold md:text-md xl:text-xl">
-                                        {}
+                                        {book.categoria?.nome}
                                     </p>
                                     <h1 className="font-semibold text-lg xl:text-3xl">
-                                        {}
+                                        {book.titulo}
                                     </h1>
 
                                     <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-3 xl:gap-4">
-                                        <p className="md:text-lg xl:text-xl">{}</p>
+                                        <p className="md:text-lg xl:text-xl">{book.autor}</p>
                                         <div className="w-12 h-[1px] bg-purple md:rounded-full md:size-[7px]"/>
-                                        <p className="md:text-lg xl:text-xl">{} páginas</p>
+                                        <p className="md:text-lg xl:text-xl">{book.paginas} páginas</p>
                                     </div>
                                 </div>
 
                                 <div className="w-full mt-10 text- text-justify xl:text-xl">
-                                    <p>{}</p>
+                                    <p>{book.descricao}</p>
                                 </div>
 
                                 <div className="mt-10">
-                                    <h2 className="text-lg text-purple font-semibold mb-3 xl:text-xl">Disponibilizado por {}</h2>
+                                    <h2 className="text-lg text-purple font-semibold mb-3 xl:text-xl">Disponibilizado por {book.usuario?.usuario}</h2>
                                     <div className="flex items-center gap-4">
                                         <div className="size-[50px] rounded-full">
                                             <img 
+                                                src={book.usuario?.icone?.slice(0,5) === "https" ? book.usuario.icone : url + '/tmp/img/users/' + book.usuario?.icone} 
                                                 alt="Usuario icone" 
                                                 className="rounded-full h-full w-full"
+                                                onError={(e) => {
+                                                    e.target.src = url + "/public/img/users/default.png";
+                                                }}
                                             />
                                         </div>
                                         <div className="font-medium">
-                                            <p className="text-gray-300">{}</p>
+                                            <p className="text-gray-300">{book.usuario?.telefone}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -93,9 +118,14 @@ export default function BookDetails(){
                                 Vá em busca do livro que tanto deseja! <br/>
                                 Entre em contato com o dono do mesmo e o ofereça outro em troca para negociação. 
                             </p>
+                            <p className="w-[85%] text-sm text-center font-medium sm:w-[80%]">
+                                <span className="font-semibold text-purple">Obs:</span> Livros do Acervo Bibliotroca podem ser trocados por qualquer outro livro que você desejar oferecer. 
+                            </p>
 
                             <div className="mt-2">
-                                <a>                                    
+                                <a
+                                    href={`https://wa.me//55${book.usuario?.telefone?.replace(/\D/g, "")}?text=Olá, me interessei pelo o livro ${book.titulo} que você publicou no Bibliotroca! Podemos conversar?`}
+                                >                                    
                                     <FilledButton text={"Entrar em contato"}/>
                                 </a>
                             </div>

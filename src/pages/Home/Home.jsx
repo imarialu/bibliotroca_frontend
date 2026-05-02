@@ -1,11 +1,30 @@
 import { useState, useEffect } from 'react';
 
+import { getBook } from '../../services/bookService';
+
 import MainLayout from "../../layouts/MainLayout";
 import { BookCard } from '../../components/BookCard';
 
 import { IoMdSearch } from "react-icons/io";
 
 export default function Home(){
+    const [search, setSearch] = useState(null);
+    const [books, setBooks] = useState([]);
+
+    useEffect(() => {
+        const fetchBook = async () => {
+            const response = await getBook(search);
+            setBooks(response.data);
+        }
+
+        fetchBook();
+    }, [search]);
+
+    const handleSearch = (e) => {
+        const title = e.target.value;
+        setSearch(title)
+    }
+
     return( 
         <>
             <MainLayout>
@@ -30,7 +49,7 @@ export default function Home(){
                     <section className="flex justify-center w-full">
                         <div className="flex items-center bg-white gap-2 mt-2 mb-8 w-[300px] text-md pl-5 py-1 border border-purple-tr rounded-full md:w-[500px]">
                             <IoMdSearch className="text-xl text-purple"/>
-                            <input type="text" placeholder="Pesquisar" className="w-[200px] md:w-[400px] focus:outline-none"/>
+                            <input type="text" placeholder="Pesquisar" name='search' onChange={handleSearch} className="w-[200px] md:w-[400px] focus:outline-none"/>
                         </div>
                     </section>
 
