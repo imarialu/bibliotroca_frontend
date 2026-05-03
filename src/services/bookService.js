@@ -3,6 +3,7 @@ import api from "./api";
 // Busca livros
 export const getBook = async (titulo) => {
     try{
+        console.log(`/livros${titulo != null ? `?titulo=${titulo}` : ""}`);
         const response = await api.get(`/livros${titulo != null ? `?titulo=${titulo}` : ""}`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,

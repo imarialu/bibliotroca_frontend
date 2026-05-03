@@ -10,7 +10,7 @@ import { IoMdSearch } from "react-icons/io";
 export default function Home(){
     const [search, setSearch] = useState(null);
     const [books, setBooks] = useState([]);
-
+    console.log(search);
     useEffect(() => {
         const fetchBook = async () => {
             const response = await getBook(search);
@@ -19,10 +19,17 @@ export default function Home(){
 
         fetchBook();
     }, [search]);
-
+    
     const handleSearch = (e) => {
         const title = e.target.value;
-        setSearch(title)
+
+        if(title != null){
+            setSearch(title);
+        }
+
+        if(title == "" || title == null){
+            setSearch(null);
+        }
     }
 
     return( 
