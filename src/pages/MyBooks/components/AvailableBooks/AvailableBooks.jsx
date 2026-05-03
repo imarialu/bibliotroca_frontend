@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 
 import url from "../../../../services/url";
 import { deleteBook, bookExchange } from '../../../../services/bookService';
@@ -19,11 +20,13 @@ export default function AvailableBooks({image, status, title, author, uuid, onUp
 
     const bookDelete = async () => {
         await deleteBook(uuid);
+        toast.success("Livro deletado!")
         onUpdate()
     };
 
     const exchangeBook = async () => {
         await bookExchange(uuid);
+        toast.success("Livro marcado como trocado!");
         onUpdate()
     };
     

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { toast } from "sonner";
 
 import url from "../../../services/url";
 import api from "../../../services/api";
@@ -36,8 +37,11 @@ export default function MyProfileForm(){
                     },
             });
             setUser(response.data.data);
+            toast.success("Seus dados foram salvos!");
         }catch(error){
             console.log(error);
+            toast.error("Erro ao editar perfil." || error.data.message);
+
         }
     }
 

@@ -1,5 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
 
 import { Input } from "../../components/Input";
 
@@ -58,7 +59,10 @@ export default function Login(){
             console.log(response)
             
             if(response){
+                toast.success("Login feito com sucesso!");
                 navigate('/');
+            }else{
+                toast.error("Erro ao realizar o login." || res.error);
             }
         }catch(error){
             console.log("Erro ao realizar login: ", error);

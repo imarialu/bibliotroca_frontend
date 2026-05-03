@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "sonner";
 
 import { getUser } from "../../../services/userService";
 import api from "../../../services/api";
@@ -27,6 +28,12 @@ export default function SecurityForm(){
                     },
                 }
             );
+
+            if(response){
+                toast.success("Senha alterada com sucesso!");
+            }else{
+                toast.error("Erro ao alterar senha." || res.error);
+            }
         } catch (error) {
             console.log("Erro ao alterar senha: ", error);
         }

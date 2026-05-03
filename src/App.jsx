@@ -8,10 +8,14 @@ import MyAccount from './pages/MyAccount/MyAccount';
 import BookDetails from './pages/BookDetails/BookDetails';
 import EditBook from './pages/EditBook/EditBook';
 import PrivateRoute from './layouts/PrivateRoute';
+import { Toaster } from 'sonner';
 
 function App() {
   return (
     <>
+      {/* Notificações toast */}
+      <Toaster position='top-right' richColors/>
+
       <Router>
         <Routes>
           {/* Rotas públicas */}

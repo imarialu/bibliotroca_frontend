@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { toast } from "sonner";
 
 import url from "../../services/url";
 import api from "../../services/api";
@@ -45,7 +46,10 @@ export default function EditBook(){
             });
 
             if(response){
+                toast.success("Livro editado com sucesso!");
                 navigate('/meus-livros');
+            }else{
+                toast.error("Erro ao editar livro." || res.error);
             }
         }catch(error){
             console.log("Erro ao editar livro: ", error);

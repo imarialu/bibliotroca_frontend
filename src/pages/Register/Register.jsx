@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 import { Input } from "../../components/Input";
 
@@ -24,7 +25,10 @@ export default function Register(){
             const response = await api.post(`/usuarios`, formData);
 
             if(response){
+                toast.success("Conta criada com sucesso!");
                 navigate('/login');
+            }else{
+                toast.error("Erro ao criar conta." || res.error);
             }
         }catch(error){
             console.log("Erro ao criar conta: ", error);
