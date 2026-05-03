@@ -31,7 +31,8 @@ export default function Sidebar(){
                         <ul className="flex gap-5 items-center md:flex-col md:mt-5">
                             <SidebarLink url={"/"} icon={<HiOutlineHome className="text-2xl"/>}/>
                             <SidebarLink url={"/meus-livros"} icon={<PiBookBookmark className="text-2xl"/>}/>
-                            <SidebarLink url={"/cadastro-de-livros"} icon={<IoAddCircleOutline className="text-2xl"/>}/>                             <SidebarLink url={"/minha-conta"} icon={<HiOutlineUser className="text-2xl"/>}/>
+                            <SidebarLink url={"/cadastro-de-livros"} icon={<IoAddCircleOutline className="text-2xl"/>}/>                             
+                            <SidebarLink url={"/minha-conta"} icon={<HiOutlineUser className="text-2xl"/>}/>
                         </ul>
                     </div>
 
