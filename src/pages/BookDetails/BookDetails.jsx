@@ -78,7 +78,7 @@ export default function BookDetails(){
                                 </div>
 
                                 <div className="mt-10">
-                                    <h2 className="text-lg text-purple font-semibold mb-3 xl:text-xl">Disponibilizado por {book.usuario?.usuario}</h2>
+                                    <h2 className="text-lg text-purple font-semibold mb-3 xl:text-xl">Disponibilizado por</h2>
                                     <div className="flex items-center gap-4">
                                         <div className="size-[50px] rounded-full">
                                             <img 
@@ -91,7 +91,7 @@ export default function BookDetails(){
                                             />
                                         </div>
                                         <div className="font-medium">
-                                            <p className="text-gray-300">{book.usuario?.telefone}</p>
+                                            <p className="text-gray-300">{book.usuario?.nome}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -117,9 +117,6 @@ export default function BookDetails(){
                             <p className="w-[90%] text-center font-semibold sm:w-[75%]">
                                 Vá em busca do livro que tanto deseja! <br/>
                                 Entre em contato com o dono do mesmo e o ofereça outro em troca para negociação. 
-                            </p>
-                            <p className="w-[85%] text-sm text-center font-medium sm:w-[80%]">
-                                <span className="font-semibold text-purple">Obs:</span> Livros do Acervo Bibliotroca podem ser trocados por qualquer outro livro que você desejar oferecer. 
                             </p>
 
                             <div className="mt-2">
