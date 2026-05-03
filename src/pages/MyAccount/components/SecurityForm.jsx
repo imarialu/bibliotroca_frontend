@@ -1,9 +1,44 @@
 import { useState } from "react";
 
+import { getUser } from "../../../services/userService";
+import api from "../../../services/api";
+
 import { Input } from "../../../components/Input";
 import FilledButton from "../../../components/FilledButton";
 
 export default function SecurityForm(){
+    const [formData, setFormData] = useState({
+        senhaAntiga: "",
+        senha: "",
+        confirmacaoSenha: ""
+    });
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const userRes = await getUser();
+
+            const response = await api.patch(`/usuarios/${userRes.data.uuid}/password`, 
+                formData, 
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                }
+            );
+        } catch (error) {
+            console.log("Erro ao alterar senha: ", error);
+        }
+    }
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
     return(
         <form className="bg-white p-8 rounded-md shadow-cont" onSubmit={handleSubmit}>
             <h1 className="mb-5 text-xl font-bold text-purple">Alterar Senha</h1>

@@ -6,6 +6,17 @@ import { getBooksUser } from "../../../../services/bookService";
 
 export default function AvailableBooksSection(){
     const [books, setBooks] = useState([]);
+
+    const fetchBook = async () => {
+        const userRes = await getUser();
+
+        const response = await getBooksUser(userRes.data);
+        setBooks(response.data);
+    }
+
+    useEffect(() => {
+        fetchBook();
+    }, []);
     
     return(
         <>
@@ -17,7 +28,8 @@ export default function AvailableBooksSection(){
                         image={book.imagem}
                         status={book.situacao}
                         title={book.titulo}
-                        author={book.autor}  
+                        author={book.autor}
+                        onUpdate={fetchBook}
                     />
                 })}
             </div>

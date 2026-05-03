@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import url from "../../../../services/url";
+import { deleteBook, bookExchange } from '../../../../services/bookService';
+
 import ExchangedButton from './ExchangedButton';
 import Modal from '../../../../components/Modal';
 import FilledButton from '../../../../components/FilledButton';
@@ -13,15 +16,28 @@ export default function AvailableBooks({image, status, title, author, uuid, onUp
     const [deleteModal, setDeteleModal] = useState(false);
 
     const navigate = useNavigate();
+
+    const bookDelete = async () => {
+        await deleteBook(uuid);
+        onUpdate()
+    };
+
+    const exchangeBook = async () => {
+        await bookExchange(uuid);
+        onUpdate()
+    };
     
     return(
         <>
             <div className="flex w-[350px] h-[180px] p-3 gap-2 bg-white border rounded-md border-purple-tr">
                 <div className="w-[120px] h-[155px]">
                     <img 
-                        src={image} 
+                        src={url + "/tmp/img/livros/" + image} 
                         alt="Capa do livro" 
                         className="w-full h-full rounded-md object-cover"
+                        onError={(e) => {
+                            e.target.src = url + "/public/img/livros/default-book.png";
+                        }}
                     />
                 </div>
 
@@ -59,7 +75,7 @@ export default function AvailableBooks({image, status, title, author, uuid, onUp
                                     <div className="flex gap-4">
                                         <button 
                                             className="py-1 px-6 rounded-full bg-red text-white font-semibold cursor-pointer"
-                                            onClick={}>
+                                            onClick={bookDelete}>
                                                 Deletar
                                         </button>
                                     </div>
@@ -73,7 +89,7 @@ export default function AvailableBooks({image, status, title, author, uuid, onUp
                                 <Modal isOpen={confirmModal} onClose={() => setconfirmModal(false)}>
                                     <h1 className="font-medium">Ficamos felizes por ter conseguido trocar seu livro!</h1>
 
-                                    <FilledButton type="submit" text={"Marcar como trocado"} onClick={} />
+                                    <FilledButton type="submit" text={"Marcar como trocado"} onClick={exchangeBook} />
                                 </Modal>
                             </div>
                         </div>
