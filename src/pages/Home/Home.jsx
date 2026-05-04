@@ -47,7 +47,7 @@ export default function Home(){
                             </div>
                             
                             <div className="hidden md:block md:flex md:justify-end md:w-1/2 ">
-                                <img src="../../../public/imgs/banner.png" alt="Garoto segurando um livro" className="rounded-r-2xl"/>
+                                <img src="/imgs/banner.png" alt="Garoto segurando um livro" className="rounded-r-2xl"/>
                             </div>
                         </div>
                     </section>
