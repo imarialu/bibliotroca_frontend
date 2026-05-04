@@ -56,7 +56,7 @@ export default function Login(){
         e.preventDefault();
         try{
             const response = await login(formData);
-            console.log(response)
+            (response)
             
             if(response){
                 toast.success("Login feito com sucesso!");
