@@ -94,10 +94,10 @@ export default function Login(){
                     
                     <form onSubmit={handleLogin} className="flex flex-col mb-5 w-[350px] lg:w-[400px]">
                         <Input 
-                            label={"Nome de usuário"} 
-                            type={"text"}
+                            label={"E-mail"} 
+                            type={"email"}
                             name="email" 
-                            value={formData.email} 
+                            value={formData.email}
                             onChange={handleChange}
                         />
                         <Input 

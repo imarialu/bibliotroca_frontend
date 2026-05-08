@@ -78,12 +78,12 @@ export default function BookRegister(){
                 <section className="md:ml-20 w-[80%] md:w-[720px] xl:w-[1100px]">
                     <form onSubmit={handleRegisterBook} className="flex flex-col p-8 mb-10 bg-white rounded-sm shadow-cont sm:mb-0">
                         <div className="flex flex-col md:flex-row xl:grid grid-cols-3">
-                            <div className="flex flex-col justify-between mb-10 md:mb-0 md:mr-8 xl:col-span-1 items-center">
-                                <div className="w-[220px] h-[280px] mb-5 md:mb-0 md:w-[230px] md:h-[330px] rounded-sm bg-gray">
+                            <div className="flex flex-col justify-between mb-5 md:mb-0 md:mr-8 xl:col-span-1 items-center">
+                                <div className="w-[220px] h-[280px] md:mb-0 md:w-[230px] md:h-[330px] rounded-sm bg-gray">
                                     <img src={url + "/public/img/livros/default-book.png"} alt="Imagem do livro do usuário" className="w-full h-full rounded-sm" />                   
                                </div>
 
-                                <div className="flex w-[230px] md:w-[230px] rounded-full justify-center items-center py-1 px-10 bg-purple-tr text-purple font-semibold cursor-pointer transition duration-400 ease hover:bg-purple-h">
+                                <div className="flex w-[230px] md:w-[230px] mt-5 rounded-full justify-center items-center py-1 px-10 bg-purple-tr text-purple font-semibold cursor-pointer transition duration-400 ease hover:bg-purple-h">
                                     <input 
                                         type="file" 
                                         id="imagem" 
@@ -125,7 +125,7 @@ export default function BookRegister(){
                                                 name="categoria_uuid" 
                                                 id="genre" 
                                                 onChange={handleChange}
-                                                className="w-[325px] h-8 mt-1 mb-3 pl-2 border border-gray rounded-sm shadow-xs focus:outline-none focus:border-purple md:w-[190px] xl:w-[340px]">
+                                                className="h-8 mt-1 mb-3 pl-2 border border-gray rounded-sm shadow-xs focus:outline-none focus:border-purple md:w-[190px] xl:w-[340px]">
                                                     <option value="">Selecione o gênero</option>
                                                     {genres.map(genre => (
                                                         <option key={genre.uuid} value={genre.uuid}>
