@@ -7,6 +7,7 @@ import MyBooks from './pages/MyBooks/MyBooks';
 import MyAccount from './pages/MyAccount/MyAccount';
 import BookDetails from './pages/BookDetails/BookDetails';
 import EditBook from './pages/EditBook/EditBook';
+import About from './pages/About/About';
 import PrivateRoute from './layouts/PrivateRoute';
 import { Toaster } from 'sonner';
 
@@ -30,6 +31,7 @@ function App() {
             <Route path='/minha-conta' element={<MyAccount/>}/> 
             <Route path='/detalhes/:uuid' element={<BookDetails/>}/> 
             <Route path='/editar-livro/:uuid' element={<EditBook/>}/> 
+            <Route path='/sobre' element={<About/>}/> 
           </Route>
         </Routes>
       </Router>

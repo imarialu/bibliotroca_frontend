@@ -73,7 +73,7 @@ export default function BookDetails(){
                                     </div>
                                 </div>
 
-                                <div className="w-full mt-10 text- text-justify xl:text-xl">
+                                <div className="w-full mt-10 text-justify xl:text-xl">
                                     <p>{book.descricao}</p>
                                 </div>
 
