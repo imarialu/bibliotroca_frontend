@@ -15,7 +15,7 @@ export default function MyAccount(){
     return(
         <>
             <MainLayout>
-                <header className="mt-12 md:mt-0 md:ml-20 w-[80%] md:w-[720px] xl:w-[1100px]">
+                <header className="md:ml-20 w-[80%] md:w-[720px] xl:w-[1100px]">
                     <Heading text={"Minha Conta"}/>
                 </header>
                 
@@ -39,7 +39,7 @@ export default function MyAccount(){
                             </Button>
                         </div>
 
-                        <section className="col-span-3 mb-5">
+                        <section className="col-span-3 mb-8">
                             {activeForm === "profile-form" && <MyProfileForm/>}
                             {activeForm === "security-form" && <SecurityForm/>}
                         </section>

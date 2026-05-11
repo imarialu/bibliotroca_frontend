@@ -5,12 +5,12 @@ export default function About(){
     return(
         <>
             <MainLayout>
-                <header className="mt-12 md:mt-0 md:ml-20 w-[80%] md:w-[720px] xl:w-[1100px]">
+                <header className="md:ml-20 w-[80%] md:w-[720px] xl:w-[1100px]">
                     <Heading text={"Sobre o Bibliotroca"}/>
                 </header>
 
-                <section className="mb-5 w-[80%] md:ml-20 mb-10 md:w-[720px] xl:w-[1100px]">
-                    <div className="flex flex-col items-center p-10 bg-white rounded-sm shadow-cont sm:mb-0">
+                <section className="w-[80%] md:ml-20 md:w-[720px] xl:w-[1100px]">
+                    <div className="flex flex-col items-center p-10 mb-8 bg-white rounded-sm shadow-cont">
                         <div className="w-[150px] my-3 sm:w-[200px]">
                             <img src="/logo2.png" alt="Logo do Bibliotroca" />
                         </div>

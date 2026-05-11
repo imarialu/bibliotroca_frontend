@@ -93,7 +93,7 @@ export default function EditBook(){
     return(
         <>
             <MainLayout>
-                <header className="mt-12 md:mt-0 md:ml-20 w-[80%] md:w-[720px] xl:w-[1100px]">
+                <header className="md:ml-20 w-[80%] md:w-[720px] xl:w-[1100px]">
                     <div className="w-[60%] md:w-[720px] xl:w-[1100px]">   
                         <button 
                             onClick={() => navigate(-1)} 

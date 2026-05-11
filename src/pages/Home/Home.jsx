@@ -35,7 +35,7 @@ export default function Home(){
     return( 
         <>
             <MainLayout>
-                <section className="mt-12 md:mt-0 md:ml-20">
+                <section className="md:ml-20">
                     <section className="flex justify-center">
                         <div className="flex w-[90%] h-[220px] my-10 rounded-2xl bg-purple-tr md:w-[720px] xl:w-[1100px]">
                             <div className="flex items-center justify-center md:w-1/2 md:h-full">
