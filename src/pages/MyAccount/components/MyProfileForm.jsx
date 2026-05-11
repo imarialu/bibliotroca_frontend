@@ -124,7 +124,7 @@ export default function MyProfileForm(){
                     />
 
                     <Input 
-                        label={"Email"} 
+                        label={"E-mail"} 
                         type="email"
                         name="email"
                         value={user.email}
