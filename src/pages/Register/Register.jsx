@@ -74,7 +74,7 @@ export default function Register(){
                     />
 
                     <Input 
-                        label={"Email"} 
+                        label={"E-mail"} 
                         value={formData.email}
                         type="email"
                         name="email"
