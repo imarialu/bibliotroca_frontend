@@ -92,7 +92,7 @@ export default function Login(){
                         </p>
                     </div>
                     
-                    <form onSubmit={handleLogin} className="flex flex-col mb-5 w-[300px] lg:w-[400px]">
+                    <form onSubmit={handleLogin} className="flex flex-col mb-5 w-[320px] lg:w-[400px]">
                         <Input 
                             label={"E-mail"} 
                             type={"email"}
@@ -113,9 +113,9 @@ export default function Login(){
                     </form>
 
                     <div className="flex items-center mb-5">
-                        <hr className="w-[180px] border-gray"/>
+                        <hr className="w-[100px] md:w-[180px] border-gray"/>
                         <p className="mx-2">Ou</p>
-                        <hr className="w-[180px] border-gray"/>
+                        <hr className="w-[100px] md:w-[180px] border-gray"/>
                     </div>
 
                     <a href={googleLink} className="flex aling-center gap-2 px-2 py-1 border border-purple rounded-sm cursor-pointer hover:text-purple">
