@@ -30,7 +30,7 @@ export default function BookDetails(){
     return(
         <>
             <MainLayout>
-                <div className="w-[60%] md:ml-20 md:w-[720px] xl:w-[1100px]">   
+                <div className="w-[90%] md:ml-20 md:w-[720px] xl:w-[1100px]">   
                     <button 
                     onClick={() => navigate(-1)} 
                     className="flex mt-10 mb-8 gap-1 py-1 px-3 border border-purple-tr rounded-md text-purple transition duration-400 ease hover:border-purple md:mt-8">
@@ -39,7 +39,7 @@ export default function BookDetails(){
                     </button>
                 </div>
 
-                <section className="w-[60%] mb-8 md:ml-20 md:w-[720px] xl:w-[1100px]">
+                <section className="w-[90%] mb-8 md:ml-20 md:w-[720px] xl:w-[1100px]">
                     <div className="p-10 bg-white rounded-sm shadow-cont">
                         <div className="flex flex-col justify-center md:grid grid-cols-2 xl:grid-cols-3">
                             <div className="col-span-1 flex justify-center">
@@ -73,7 +73,7 @@ export default function BookDetails(){
                                     </div>
                                 </div>
 
-                                <div className="w-full mt-10 text-justify xl:text-xl">
+                                <div className="w-full mt-10 text- xl:text-xl">
                                     <p>{book.descricao}</p>
                                 </div>
 

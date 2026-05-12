@@ -92,7 +92,7 @@ export default function Login(){
                         </p>
                     </div>
                     
-                    <form onSubmit={handleLogin} className="flex flex-col mb-5 w-[350px] lg:w-[400px]">
+                    <form onSubmit={handleLogin} className="flex flex-col mb-5 w-[300px] lg:w-[400px]">
                         <Input 
                             label={"E-mail"} 
                             type={"email"}

@@ -93,7 +93,7 @@ export default function EditBook(){
     return(
         <>
             <MainLayout>
-                <header className="md:ml-20 w-[80%] md:w-[720px] xl:w-[1100px]">
+                <header className="md:ml-20 w-[90%] md:w-[720px] xl:w-[1100px]">
                     <div className="w-[60%] md:w-[720px] xl:w-[1100px]">   
                         <button 
                             onClick={() => navigate(-1)} 
@@ -105,7 +105,7 @@ export default function EditBook(){
                     <h1 className="text-3xl font-outfit font-semibold text-purple my-5">Editar livro</h1>
                 </header>
 
-                <section className="md:ml-20 w-[80%] md:w-[720px] xl:w-[1100px]">
+                <section className="w-[90%] md:ml-20 md:w-[720px] xl:w-[1100px]">
                     <form className="flex flex-col p-8 mb-8 bg-white rounded-sm shadow-cont" onSubmit={handleSubmit}>
                         <div className="flex flex-col items-center md:flex-row xl:grid grid-cols-3">
                             <div className="flex flex-col justify-between mb-5 md:mb-0 md:mr-8 xl:col-span-1 items-center">

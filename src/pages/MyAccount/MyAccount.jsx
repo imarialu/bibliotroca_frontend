@@ -15,11 +15,11 @@ export default function MyAccount(){
     return(
         <>
             <MainLayout>
-                <header className="md:ml-20 w-[80%] md:w-[720px] xl:w-[1100px]">
+                <header className="md:ml-20 w-[90%] md:w-[720px] xl:w-[1100px]">
                     <Heading text={"Minha Conta"}/>
                 </header>
                 
-                <section className="md:ml-20 w-[80%] md:w-[720px] xl:w-[1100px]">
+                <section className="md:ml-20 w-[90%] md:w-[720px] xl:w-[1100px]">
                     <div className="flex flex-col xl:grid grid-cols-4">
                         <div className="mb-10 flex flex-col w-[200px] h-[83px] border border-purple-tr rounded-sm md:mr-10">
                             <Button

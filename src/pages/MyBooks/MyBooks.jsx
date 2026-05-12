@@ -15,28 +15,28 @@ export default function MyBooks(){
     return (
         <>
             <MainLayout>
-                <header className="md:ml-20 w-[80%] md:w-[720px] xl:w-[1100px]">
+                <header className="flex flex-col items-center md:inline-block md:items-start w-[80%] md:ml-20 md:w-[720px] xl:w-[1100px]">
                     <Heading text={"Meus Livros"}/>
 
-                    <div className="flex gap-5">
+                    <div className="flex justify-center md:justify-start gap-2 md:gap-4">
                         <GhostButton 
                             isActive={activeContainer === "container-available"} 
                             onClick={() => setActiveContainer("container-available")} 
-                            icon={<PiBooks className="text-2xl"/>} 
+                            icon={<PiBooks className="text-xl md:text-2xl"/>} 
                             text={"Disponíveis"}>
                         </GhostButton>
 
                         <GhostButton 
                             isActive={activeContainer === "container-exchanged"} 
                             onClick={() => setActiveContainer("container-exchanged")} 
-                            icon={<HiOutlineRefresh className="text-2xl"/>} 
+                            icon={<HiOutlineRefresh className="text-xl md:text-2xl"/>} 
                             text={"Trocados"}>
                         </GhostButton>
                     </div>
                     <hr className="mt-4 text-purple"/>
                 </header>
 
-                <section className="flex justify-center md:justify-start md:ml-20 w-[80%] md:w-[720px] xl:w-[1100px]">
+                <section className="flex flex-col items-center md:items-start w-[90%] md:ml-20 md:w-[720px] xl:w-[1100px]">
                     {activeContainer === "container-available" && <AvailableBooksSection/>}
                     {activeContainer === "container-exchanged" && <ExchangedBooksSection/>}
                 </section>

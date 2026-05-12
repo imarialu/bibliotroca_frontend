@@ -20,7 +20,7 @@ export default function AvailableBooksSection(){
     
     return(
         <>
-            <div className="grid grid-cols-1 gap-6 justify-cente mt-10 mb-10 md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 justify-center my-2 md:my-5 mb-10 md:grid-cols-2 xl:grid-cols-3">
                 {books.map((book) => {
                     return <AvailableBooks
                         key={book.uuid}

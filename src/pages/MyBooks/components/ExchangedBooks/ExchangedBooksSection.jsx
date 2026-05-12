@@ -21,7 +21,7 @@ export default function ExchangedBooksSection(){
 
     return(
         <>
-            <div className="grid grid-cols-1 gap-5 my-10 md:grid-cols-3 xl:grid-cols-5">
+            <div className="grid grid-cols-1 gap-5 my-5 md:grid-cols-3 xl:grid-cols-5">
                 {books.map((book) => {
                     return <ExchangedBooks
                         key={book.uuid}

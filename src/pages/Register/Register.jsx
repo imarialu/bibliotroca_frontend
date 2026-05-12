@@ -57,7 +57,7 @@ export default function Register(){
                     </p>
                 </div>
 
-                <form className="flex flex-col mb-5 w-[350px] lg:w-[400px]" onSubmit={handleRegister}>
+                <form className="flex flex-col mb-5 w-[300px] lg:w-[400px]" onSubmit={handleRegister}>
                     <Input 
                         label={"Nome de usuário"} 
                         value={formData.usuario}

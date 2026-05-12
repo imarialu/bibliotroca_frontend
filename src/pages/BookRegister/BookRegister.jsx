@@ -71,13 +71,13 @@ export default function BookRegister(){
     return(
         <>
             <MainLayout>
-                <header className="md:ml-20 w-[80%] md:w-[720px] xl:w-[1100px]">
+                <header className="flex flex-col items-center w-[90%] md:items-start md:ml-20 md:w-[720px] xl:w-[1100px]">
                     <Heading text={"Cadastro de livro"}/>
                 </header>
 
-                <section className="w-[80%] md:ml-20 md:w-[720px] xl:w-[1100px]">
-                    <form onSubmit={handleRegisterBook} className="flex flex-col p-8 mb-8 bg-white rounded-sm shadow-cont ">
-                        <div className="flex flex-col md:flex-row xl:grid grid-cols-3">
+                <section className="w-[90%] md:ml-20 md:w-[720px] xl:w-[1100px]">
+                    <form onSubmit={handleRegisterBook} className="flex flex-col p-8 mb-8 bg-white rounded-sm shadow-cont">
+                        <div className="flex flex-col items-center md:flex-row xl:grid grid-cols-3">
                             <div className="flex flex-col justify-between mb-5 md:mb-0 md:mr-8 xl:col-span-1 items-center">
                                 <div className="w-[220px] h-[280px] md:mb-0 md:w-[230px] md:h-[330px] rounded-sm bg-gray">
                                     <img src={url + "/public/img/livros/default-book.png"} alt="Imagem do livro do usuário" className="w-full h-full rounded-sm" />                   

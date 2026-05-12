@@ -32,8 +32,8 @@ export default function AvailableBooks({image, status, title, author, uuid, onUp
     
     return(
         <>
-            <div className="flex w-[350px] h-[180px] p-3 gap-2 bg-white border rounded-md border-purple-tr">
-                <div className="w-[120px] h-[155px]">
+            <div className="flex w-[320px] md:w-[350px] h-[180px] p-3 gap-2 bg-white border rounded-md border-purple-tr">
+                <div className="w-[130px] md:w-[120px] h-[155px]">
                     <img 
                         src={url + "/tmp/img/livros/" + image} 
                         alt="Capa do livro" 
@@ -48,7 +48,7 @@ export default function AvailableBooks({image, status, title, author, uuid, onUp
                     <div>
                         <p className="text-sm font-semibold">{status}</p>
                         <h2 className="font-medium">
-                            {title.length > 24 ? `${title.substring(0, 23)}...` : title}
+                            {title.length > 22 ? `${title.substring(0, 21)}...` : title}
                         </h2>
                         <p className="text-sm">{author}</p>
                     </div>
