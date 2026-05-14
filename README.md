@@ -10,7 +10,7 @@
 </div>
 
 ## 🧾Sobre
-O bibliotroca é uma plataforma onde leitores podem trocar livros entre si. A aplicação foi desenvolvida para ser submetida como Trabalho final da disciplina de Tecnologia Aplicada à Inclusão Digital.
+O Bibliotroca é uma plataforma onde leitores podem trocar livros entre si. A aplicação foi desenvolvida para ser submetida como Trabalho final da disciplina de Tecnologia Aplicada à Inclusão Digital.
 
 ## 🌟 Objetivo
 Incentivar e promover o acesso democrático e sustentável à leitura. O projeto tem como objetivo facilitar o acesso a livros em certas regiões e incentivar a reutilização por parte dos leitores.
